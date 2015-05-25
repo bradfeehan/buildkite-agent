@@ -10,7 +10,7 @@ base64_decode() {
 # Save the SSH key if it's in the environment
 if [[ -n "$BUILDKITE_ID_RSA_BASE64" ]]; then
   mkdir -p "$HOME/.ssh"
-  rm "$HOME/.ssh/id_rsa"
+  rm -f "$HOME/.ssh/id_rsa"
   base64_decode "$BUILDKITE_ID_RSA_BASE64" > "$HOME/.ssh/id_rsa"
   chmod 400 "$HOME/.ssh/id_rsa"
   export BUILDKITE_ID_RSA_BASE64=""
